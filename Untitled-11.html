@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2ndGlow - Pengelolaan Limbah Minyak & Lilin Ramah Lingkungan</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f5e9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1b5e20;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover::before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        nav a:hover {
+            color: #4caf50;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            background-color: #f9fbe7;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #1b5e20;
+            transform: translateY(-5px);
+        }
+
+        .images-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .images-container img {
+            width: 30%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .images-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .schedule {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .schedule h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .schedule form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .schedule label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .schedule input, .schedule textarea, .schedule select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        footer {
+            background-color: #2e7d32;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .images-container {
+                flex-direction: column;
+            }
+
+            .images-container img {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>2ndGlow</h1>
+        <p>Transformasi Limbah Minyak Menjadi Lilin Ramah Lingkungan</p>
+    </header>
+
+    <nav>
+        <a href="#about">Tentang Kami</a>
+        <a href="#services">Layanan</a>
+        <a href="#forum">Forum</a>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="section">
+            <h2>Tentang Kami</h2>
+            <p>2ndGlow adalah sebuah inisiatif untuk mengurangi dampak limbah minyak di Indonesia dengan cara mengubahnya menjadi lilin relaksasi dan aromaterapi yang ramah lingkungan. Kami percaya bahwa melalui inovasi dan kreativitas, kita dapat menciptakan produk yang bermanfaat bagi manusia sekaligus mengurangi kerusakan alam yang terjadi akibat limbah minyak.</p>
+            <div class="images-container">
+                <img src="https://tanbubioenergy.com/wp-content/uploads/2024/04/komunitas-pengepul-minyak-jelantah.jpg" alt="Lilin Aromaterapi">
+                <img src="https://asset-a.grid.id/crop/0x0:0x0/x/photo/2024/02/22/minyak-goreng-bekasjpg-20240222034507.jpg" alt="Limbah Minyak">
+                <img src="https://asset.kompas.com/crops/1kq8o_GECtRQaEq2bYK8hgXkEK8=/0x44:581x432/750x500/data/photo/2022/12/22/63a3aae0e3088.png" alt="Lilin Daur Ulang">
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <h2>Layanan Kami</h2>
+            <ul>
+                <li>Forum diskusi dan konsultasi tentang pengelolaan limbah minyak.</li>
+                <li>Informasi dan tutorial tentang pembuatan lilin aromaterapi dari bahan-bahan ramah lingkungan.</li>
+                <li>Paket lilin khusus yang dibuat sesuai kebutuhan dan preferensi pelanggan.</li>
+                <li>Layanan pesanan khusus untuk lilin aromaterapi.</li>
+                <li>Panduan memilih lilin berdasarkan suasana hati, aroma, dan kebutuhan.</li>
+                <li>Konten edukatif tentang manfaat aromaterapi dan keberlanjutan lingkungan.</li>
+                <li>Kelas online tentang teknik pembuatan lilin dan pemanfaatan limbah minyak.</li>
+            </ul>
+            <div class="schedule">
+                <h3>Jadwalkan Konsultasi</h3>
+                <form action="config.php" method="POST">
+                    <label for="date">Tanggal:</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="time">Waktu:</label>
+                    <input type="time" id="time" name="time" required>
+                    <label for="phone">Nomor Handphone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="service">Pilih Layanan:</label>
+                    <select id="service" name="service">
+                        <option value="Penjadwalan">Penjadwalan Pengambilan Minyak Jelantah</option>
+                        <option value="Workshop">Workshop Pengolahan Limbah Minyak</option>
+                        <option value="Pembelian">Pembelian Lilin Relaksasi dan Aromatik</option>
+                    </select>
+                    <label for="notes">Catatan Tambahan:</label>
+                    <textarea id="notes" name="notes" rows="4"></textarea>
+                    <input type="submit" value="Jadwalkan">
+                </form>
+            </div>
+        </section>
+
+        <section id="forum" class="section">
+            <h2>Forum Diskusi</h2>
+            <p>Bergabunglah dengan komunitas kami untuk berdiskusi dan berbagi pengalaman tentang pengelolaan limbah minyak dan pembuatan lilin. Kami percaya bahwa kolaborasi adalah kunci untuk mencapai keberlanjutan.</p>
+            <div class="images-container">
+                <img src="https://static.republika.co.id/uploads/images/inpicture_slide/ilustrasi-forum-diskusi-global-youth_220612071829-297.jpg" alt="Diskusi Pengelolaan Limbah">
+                <img src="https://zonaebt.com/wp-content/uploads/youth-cleaning-forest-from-trash_23-2147826367.jpg" alt="Komunitas Lingkungan">
+            </div>
+            <a href="https://chat.whatsapp.com/LvFkUPyA32EKjITwisX8p3" class="button">Bergabung Sekarang</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 2ndGlow. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <!-- Masukkan kode JavaScript sebelum penutup body -->
+    <script>
+        // Validasi form jadwal konsultasi
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            if (!date || !time || !phone || !email) {
+                event.preventDefault();
+                alert("Semua kolom harus diisi!");
+            } else {
+                alert("Konsultasi berhasil dijadwalkan!");
+            }
+        });
+
+        // Smooth scroll ke bagian saat navigasi diklik
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Reveal sections saat scroll
+        const sections = document.querySelectorAll('.section');
+
+        const revealSection = () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const triggerPoint = window.innerHeight - 150;
+
+                if (sectionTop < triggerPoint) {
+                    section.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealSection);
+    </script>
+</body>
+</html>
